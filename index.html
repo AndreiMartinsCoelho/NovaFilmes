@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="./JS/classes.js"></script>
 </head>
 <body>
     <nav>
@@ -21,7 +22,8 @@
     <header>
       <flex-container>
         <div class="title"><h1> O melhor catalogo de filmes do Brasil, agora em sua mão! Procure Agora!</h1></div>
-        <div class="Pesquisar"><input type="text" name="Pesquisar" placeholder="Pesquisar filmes"></div>
+        <input class="form-control me-2" id="input-buscar-filme" type="search" placeholder="Bsucar filme" aria-label="Search">
+        <button class="btn btn-outline-success" id="btn-buscar-filme" type="submit">Buscar</button>
       </flex-container>
     </header>
     <section>
