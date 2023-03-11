@@ -1,65 +1,77 @@
-/*let ator = new Ator(1, "Tom Rola");
-console.log(ator);
-
-let diretor = new Diretor(1,"Alfred");
-
-console.log(diretor);
-
-let direcao=[
-    new Diretor(1,"lana cabeçao"),
-    new Diretor(2,"zoio loko")
-];
-
-console.log(direcao);
-
-let elenco =[
-    new Ator(1,"macaco"),
-    new Ator(2,"olavo"),
-    new Ator(3,"roth"),
-    new Ator(4,"ovo")
-]
-
-console.log(elenco);
-
-let sino = "Um jovem (mamaco) foi parar na cidade";
-let cartaz = "https://upload.wikimedia.org/wikipedia/pt/9/9b/Carros_p%C3%B4ster.jpg";
-
-let genero = ["Ação", "Aventura","Ficção cientifica"];
-
-console.log(genero, sino, cartaz);
-
-let filme = new Filme(
-    1,
-    "Carros",
-    2005,
-    genero,
-    102,
-    sino,
-    cartaz,
-    direcao,
-    elenco,
-    14,
-    null
-);
-
-console.log(filme);*/
-
 let inputBuscarFilme = document.querySelector("#input-buscar-filme");
 let btnBuscarFilme = document.querySelector("#btn-buscar-filme");
-
-btnBuscarFilme.onclick = ()=>{
-    if(inputBuscarFilme.ariaValueMax.length > 0)
+btnBuscarFilme.onclick = async ()=>{
+    if(inputBuscarFilme.value.length > 0)
     {
-        fetch("http://www.omdbapi.com/?i=tt3896198&apikey=b313db67"+inputBuscarFilme.value, {mode:"cors"})
+        let filmes = new Array();
+        fetch("http://www.omdbapi.com/?apikey=1f8c9e4&s="+inputBuscarFilme.value, {mode:"cors"})
         .then((resp)=> resp.json())
         .then((resp)=> {
-            console.log(resp);
+            resp.Search.forEach((item)=>{
+                console.log(item);
+                let filme=new Filme(
+                    item.imdbID,
+                    item.Title,
+                    item.Year,
+                    null,
+                    null,
+                    item.Poster,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                );
+                filmes.push(filme);
+
+            });
+            listarFilmes(filmes);
         })
-        console.log(inputBuscarFilme.value);
+
     }
     return false;
+
+}
+
+let listarFilmes = async(filmes)=>{
+    let listaFilmes = await document.querySelector("#lista-filmes");
+    listaFilmes.innerHTML="";
+    console.log(listaFilmes);
+    if(filmes.length>0){
+        filmes.forEach(async(filme)=>{
+            listaFilmes.appendChild(await filme.getCard());
+        });
+    }
 }
 
 getCard = async() =>{
-    
+    let card = document.createElement("div");
+    card.setAttribute("class","card");
+    let imgCartaz = document.createElement("img");
+    imgCartaz.setAttribute("class","card-img-topz");
+    imgCartaz.setAttribute("src",this.cartaz);
+    let cardBody = document.createElement("div");
+    cardBody.setAttribute("class","card-body");
+    let hCardTitle=document.createElement("h5");
+    hCardTitle.setAttribute("class","card-title");
+    let divDetalhes = document.createElement("div");
+    divDetalhes.setAttribute("style","display:flex; justify-content:space-aroud;");
+    let divGenero=document.createElement("div");
+    divGenero.setAttribute("style","flex-grow:1;");
+    let divAnoProducao=document.createElement("div");
+    divAnoProducao.setAttribute("style","flex-grow:1;");
+    let divClassificacao=document.createElement("div");
+    divClassificacao.setAttribute("style","flex-grow:1;");
+    hCardTitle.appendChild(document.createTextNode(this.titulo));
+    divGenero.appendChild(document.createTextNode(this.genero));
+    divAnoProducao.appendChild(document.createTextNode(this.ano));
+    divClassificacao.appendChild(document.createTextNode(this.classi));
+    divDetalhes.appendChild(divGenero);
+    divDetalhes.appendChild(divAnoProducao);
+    divDetalhes.appendChild(divClassificacao);
+    card.appendChild(imgCartaz);
+    card.appendChild(cardBody);
+    cardBody.appendChild(hCardTitle);
+    cardBody.appendChild(divDetalhes);
+    return card;
 }
