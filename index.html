@@ -17,24 +17,18 @@
     <nav>
       <div class="logo"><img src="./images/Netflix_logo.png"></div>
       <div class="logoTitle"><p><span class="destaque">N</span>ova<span class="destaque">F</span>ilms</p></div>
-      <div class="btn-fav"><button>Ver Favoritos</button></div>
+      
     </nav>
     <header>
-      <flex-container>
-        <div class="title"><h1> O melhor catalogo de filmes do Brasil, agora em sua mão! Procure Agora!</h1></div>
-              <input class="form-control me-2" id="input-buscar-filme" type="search" placeholder="Buscar filme" aria-label="Search">
-      <button class="btn btn-outline-success" id="btn-buscar-filme" type="submit">Buscar</button>
-      </flex-container>
+        <input class="form-control me-2" id="input-buscar-filme" type="search" placeholder="Buscar filme" aria-label="Search">
+        <button class="btn btn-outline-success" id="btn-buscar-filme" type="submit">Buscar</button>
     </header>
+
     <section>
-      <main>
-        <div id="lista-filmes">
-
-        </div>
-        <div id="mostrar-filme">
-
-        </div>
-      </main>
+    <flex-container>
+        <div id="lista-filmes"></div>
+        <div id="mostrar-filme"></div>
+    </flex-container>
 
    <div class="btn-group">
       <button type="button" class="btn btn-danger">Categorias</button>
@@ -50,8 +44,9 @@
       </ul>
     </div>
 
-  <flex-container>
+    <div class="btn-fav"><button>Ver Favoritos</button></div>
 
+  <flex-container>
 
     <div class="filmes">
       <div class="card-filme">
