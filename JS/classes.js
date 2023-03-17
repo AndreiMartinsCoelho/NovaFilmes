@@ -1,5 +1,5 @@
 class Filme{
-    constructor(id, titulo, ano, genero, duracao, sino, cartaz, direcao, atores, classi, ranking)
+    constructor(id, titulo, ano, genero, duracao, sino, cartaz, direcao, atores, classi, ranking, btnDetalhes)
     {
         this.id=id;
         this.titulo = titulo;
@@ -12,6 +12,7 @@ class Filme{
         this.duracao = duracao;
         this.cartaz = cartaz;
         this.ranking = ranking;
+        this.btnDetalhes=null;
     }
 
 getCard = async() =>{
@@ -43,6 +44,40 @@ getCard = async() =>{
     card.appendChild(cardBody);
     cardBody.appendChild(hCardTitle);
     cardBody.appendChild(divDetalhes);
+
+    this.setBtnDetalhes();
+    cardBody.appendChild(this.getBtnDetalhes());
+
     return card;
 };
+
+setBtnDetalhes= () =>{
+    this.btnDetalhes = document.createElement('button');
+    this.btnDetalhes.appendChild(document.createTextNode("Detalhes"));
+    this.btnDetalhes.setAttribute("id",this.id);
+    this.btnDetalhes.setAttribute("class","btnDetalhesFilme");
+};
+
+getCardDetalhes =()=>{
+    let cardInfo = document.createElement("div");
+    cardInfo.setAttribute("class","cardInfo");
+    let cardFilmDe = document.createElement("div");
+    cardFilmDe.setAttribute("class","cardFilmDe");
+    let titleFilme = document.createElement("h3");
+    titleFilme.setAttribute("class",this.titulo);
+    let cardDeth = document.createElement("div");
+    cardDeth.setAttribute("style","display:flex; justify-content:space-aroud;");
+    let divAtor = document.createElement("h3");
+    divAtor.setAttribute("class",this.atores);
+    cardInfo.appendChild(cardFilmDe);
+    cardFilmDe.appendChild(titleFilme);
+
+    cardFilmDe.appendChild(this.getCardDetalhes);
+    return cardInfo;
+};
+
+getBtnDetalhes = () =>{
+    return this.btnDetalhes;
+}
+
 }
