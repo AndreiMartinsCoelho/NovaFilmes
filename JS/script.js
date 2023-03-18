@@ -34,13 +34,47 @@ btnBuscarFilme.onclick = async ()=>{
 
 };
 
+let detalhesFilme = async (id)=>{
+    fetch("http://www.omdbapi.com/?apikey=1f8c9e4&i="+id)
+    .then((resp)=>resp.json())
+    .then((resp)=>{
+        console.log(resp);
+        let filme = new Filme(
+            resp.imdbID,
+            resp.Title,
+            resp.Year,
+            resp.Genre.split(","),
+            resp.Runtime,
+            resp.Plot,
+            resp.Poster,
+            resp.Director,
+            resp.Actors.split(","),
+            resp.Awards,
+            resp.imdbRating
+        );
+        console.log(filme);
+        
+        let listaFilmes = document.querySelector("#lista-filmes");
+        listaFilmes.innerHTML="";
+        let detalheFilmes = document.querySelector("#mostrar-filme");
+        detalheFilmes.innerHTML="";
+        
+        detalheFilmes.appendChild(filme.getCardDetalhes());
+        console.log(detalheFilmes);
+    });
+
+    return false;
+};
+
 let listarFilmes = async(filmes)=>{
-    let listaFilmes = await document.querySelector("#lista-filmes");
+    let listaFilmes = document.querySelector("#lista-filmes");
     listaFilmes.innerHTML="";
+    let detalheFilmes = document.querySelector("#mostrar-filme");
+    detalheFilmes.innerHTML="";
     //console.log(listaFilmes);
     if(filmes.length>0){
         filmes.forEach(async(filme)=>{
-            console.log(filme);
+            //console.log(filme);
             listaFilmes.appendChild(await filme.getCard());
             filme.getBtnDetalhes().onclick=()=>{
                 detalhesFilme(filme.id);
@@ -51,32 +85,6 @@ let listarFilmes = async(filmes)=>{
     return false;
 };
 
-let detalhesFilme = async (id)=>{
-    let detalharFilmes = async(detalhesFilme)=>{
-    fetch("http://www.omdbapi.com/?apikey=1f8c9e4&i="+id)
-    .then((resp)=>resp.json())
-    .then((resp)=>{
-        console.log(resp);
-        resp.imdbID,
-        resp.Title,
-        resp.Year,
-        resp.Genre.split(","),
-        resp.Runtime,
-        resp.Poster,
-        resp.plot,
-        resp.Director,
-        resp.Actors.split(","),
-        resp.awards,
-        resp.imdbRating;
-        //Chamar metodo para gerar card com detalhes do filme.
-        //Ocultar div #lista-filmes
-    });
 
-    let mostrarFilmes = await document.querySelector("#mostrar-filmes");
-    mostrarFilmes.innerHTML = "";
 
-    mostrarFilmes.appendChild(await filme.getCardDetalhes());
-    let listaFilmes = await document.querySelector("#lista-filmes");
-    listaFilmes.style.display = "none";
-  };
-}
+
