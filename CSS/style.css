@@ -72,8 +72,28 @@ header{
     border-radius: 0 0 18px 18px;
 }
 
-input{
-    width: 50%!important;
+.form-control{
+    width: 35%!important;
+    height: 50%!important;
+    border-radius: 30px!important;
+    border:solid 3px red!important;
+    background-color: white!important;
+    color: black!important;
+}
+
+.btn-outline-success{
+    background-color: red!important;
+    color: white!important;
+    border: solid white 3px!important;
+    width: 10%!important;
+    height: 40%!important;
+    border-radius: 30px!important;
+}
+
+.btn-danger{
+    background-color: red!important;
+    color: white!important;
+    border: solid black 2px!important;
 }
 
 footer{
@@ -82,7 +102,7 @@ footer{
     justify-content: center;
     background-color: black;
     width: 100%;
-    height: 12vh;
+    height: 10vh;
     border-radius: 20px 20px 0 0;
 }
 
@@ -281,12 +301,13 @@ footer{
     align-items: center;
     justify-content: center;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
     background-color: red;
     width: 100%;
     height: 30%;
     margin: 10px;
+    border: solid 3px white;
 }
 
 .cardInfos{
@@ -323,8 +344,13 @@ footer{
 
 
 .form-check-label{
+    width: 100%!important;
     color: white!important;
     font-size: 10!important;
+}
+
+.form-check-label input{
+    width: 10%!important;
 }
 
 flex-container{
@@ -366,23 +392,27 @@ flex-container{
 
   .filmes{
     width: 40vw;
-    height: 32vh;
+    height: 36vh;
     justify-content: center;
-    margin: 15px;
+    margin: 18px;
   }
 
   .filmes-favoritos{
     width: 40vw;
     height: 32vh;
-    margin: 5px;
     justify-content: center;
-    margin: 15px;
+    margin: 20px;
 }
 
 .favo-aba a{
     border-radius: 15px;
     width: 55vw;
     height: 6vh;
+}
+
+.fav-title{
+    margin-top: 20px;
+    margin-bottom: 0;
 }
 
   .card-filme{
@@ -419,7 +449,7 @@ flex-container{
 }
 
 section{
-    min-height: 3000px;
+    min-height: 3777px;
     background-color: white;
 }
 
@@ -473,7 +503,8 @@ section{
     align-items: center;
     justify-content: center;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
+    border: solid 3px white;
     width: 100%;
     height: 20%;
     margin: 10px;
@@ -511,4 +542,29 @@ section{
     font-weight: 800;
     width: 100%;
 }
+
+.btn-outline-success{
+    background-color: red!important;
+    color: white!important;
+    border: solid white 3px!important;
+    width: 30%!important;
+    height: 40%!important;
+    border-radius: 30px!important;
+}
+
+.btn-danger{
+    background-color: red!important;
+    color: white!important;
+    border: solid black 2px!important;
+}
+
+.form-control{
+    width: 55%!important;
+    height: 40%!important;
+    border-radius: 30px!important;
+    border:solid 3px red!important;
+    background-color: white!important;
+    color: black!important;
+}
+
 }
