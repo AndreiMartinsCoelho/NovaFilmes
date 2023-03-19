@@ -69,7 +69,7 @@ getCardDetalhes = () => {
     let divSimDetalhes = document.createElement("div");
     divSimDetalhes.setAttribute("class", "divCardDetalhes");
     let divDetalhes = document.createElement("div");
-    divDetalhes.setAttribute("id", "card-body");
+    divDetalhes.setAttribute("class", "card-body2");
     let divAllDetalhes = document.createElement("div");
     divAllDetalhes.setAttribute("id", "card-body");
 

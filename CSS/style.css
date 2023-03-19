@@ -68,7 +68,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    background-color: black;
     border-radius: 0 0 18px 18px;
 }
 
@@ -239,8 +239,7 @@ footer{
 
 .card-img-topz{
     width: 100%;
-    height: 70%;
-    border-radius: 20px 20px 0 0;
+    height: 60%;
 }
 
 #lista-filmes{
@@ -255,10 +254,10 @@ footer{
 }
 
 .cardFilmeDeth{
+    display: flex;
     margin: 10px;
-    width: 30%;
-    height: 50%;
-    display: block;
+    width: 70%;
+    height: 70%;
 }
 
 .divCardDetalhes{
@@ -268,7 +267,13 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 20px 20px 0;
+}
+
+.cardFilmeDeth img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
 }
 
 .btnDetalhesFilme{
@@ -291,21 +296,28 @@ footer{
 
 .card-body{
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
+    height: 60%;
     background-color: #1E1E1E;
     border-radius: 0 0 10px 10px;
 }
 
+.card-body2{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    width: 100%;
+    background-color: #1E1E1E;
+    border-radius: 0 20px 20px 20px;
+}
+
+
 .card-title{
     font-size: 10pt;
     font-weight: 800;
-    width: 100%;
-}
-
-.card-img-topz{
     width: 100%;
 }
 
@@ -328,19 +340,13 @@ flex-container{
         margin: 10px;
         width: 90%;
         height: 50%;
-        display: block;
+        display: block; 
     }
 
     .logo{
         width: 11vw;
         display: flex;
         align-items: center;
-    }
-
-    .card{
-        width: 40vw;
-        height: 32vh;
-        justify-content: center;
     }
 
     .logo img{
@@ -430,6 +436,79 @@ section{
 
 .card-img-topz{
     width: 100%;
-    height: 70%;
+    height: 50%;
+}
+
+.card{
+    width: 46vw;
+    height: 26vh;
+    justify-content: center;
+    display: flex;
+    font-size: 14pt;
+}
+
+.cardFilmeDeth{
+    display: inline block;
+    margin: 10px;
+    width: 90%;
+}
+
+.divCardDetalhes{
+    width: 100%;
+    color: white;
+    background-color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 10px 10px;
+}
+
+.cardFilmeDeth img{
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.btnDetalhesFilme{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    height: 20%;
+    margin: 10px;
+}
+
+.cardInfos{
+    font-size: 15px;
+    width: 95%;
+    margin: 10px;
+}
+
+.card-body{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+    background-color: #1E1E1E;
+    border-radius: 0 0 8px 8px;
+}
+
+.card-body2{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 90%;
+    background-color: #1E1E1E;
+    border-radius: 0 0 8px 8px;
+}
+
+.card-title{
+    font-size: 10pt;
+    font-weight: 800;
+    width: 100%;
 }
 }
