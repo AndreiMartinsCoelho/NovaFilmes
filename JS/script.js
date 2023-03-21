@@ -74,10 +74,10 @@ let listarFilmes = async(filmes)=>{
     //console.log(listaFilmes);
     if(filmes.length>0){
         filmes.forEach(async(filme)=>{
-            //console.log(filme);
+                console.log(filme);
             listaFilmes.appendChild(await filme.getCard());
             filme.getBtnDetalhes().onclick=()=>{
-                detalhesFilme(filme.id);
+                detalhesFilme(filme.id);    
             }
         });
     }

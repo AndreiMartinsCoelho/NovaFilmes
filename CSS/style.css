@@ -535,6 +535,7 @@ section{
     width: 90%;
     background-color: #1E1E1E;
     border-radius: 0 0 8px 8px;
+    margin: 10px;
 }
 
 .card-title{
