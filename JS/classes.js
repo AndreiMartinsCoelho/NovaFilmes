@@ -1,5 +1,5 @@
 class Filme{
-    constructor(id, titulo, ano, genero, duracao, sino, cartaz, direcao, atores, classi, ranking, btnDetalhes)
+    constructor(id, titulo, ano, genero, duracao, sino, cartaz, direcao, atores, classi, ranking, btnDetalhes,)
     {
         this.id=id;
         this.titulo = titulo;
@@ -12,7 +12,7 @@ class Filme{
         this.atores = atores;
         this.classi = classi;
         this.ranking = ranking;
-        this.btnDetalhes=btnDetalhes;
+        this.btnDetalhes = btnDetalhes;
     }
 
     getCard = async() =>{
@@ -91,6 +91,12 @@ getCardDetalhes = () => {
     filmRank.setAttribute("class", "cardInfos");
     let filmAva = document.createElement("h5");
     filmAva.setAttribute("class", "cardInfos");
+    let btnSalvar = document.createElement('button');
+    btnSalvar.setAttribute("id","btnSalvar");
+    let btnFecho = document.createElement('button');
+    btnFecho.setAttribute("id","btnFechar");
+
+
 
     tituloFilme.appendChild(document.createTextNode("Nome: "+this.titulo));
     filmGenero.appendChild(document.createTextNode("Gênero: "+this.genero));
@@ -101,6 +107,8 @@ getCardDetalhes = () => {
     filmAva.appendChild(document.createTextNode("Avaliação: "+this.ranking));
     filmElenco.appendChild(document.createTextNode("Diretor: "+this.direcao));
     filmAtor.appendChild(document.createTextNode("Atores: "+this.atores));
+    btnSalvar.appendChild(document.createTextNode("Salvar Filme"));
+    btnFecho.appendChild(document.createTextNode("Fechar"));
 
     cardDetalhe.appendChild(cardImg);
     cardDetalhe.appendChild(divSimDetalhes)
@@ -114,6 +122,8 @@ getCardDetalhes = () => {
     divDetalhes.appendChild(filmRank);
     divDetalhes.appendChild(filmAva);
     divDetalhes.appendChild(filmDura);
+    divDetalhes.appendChild(btnSalvar);
+    divDetalhes.appendChild(btnFecho);
   
     return cardDetalhe;
   };

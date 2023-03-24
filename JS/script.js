@@ -1,5 +1,7 @@
 let inputBuscarFilme = document.querySelector("#input-buscar-filme");
 let btnBuscarFilme = document.querySelector("#btn-buscar-filme");
+let navFavoritos = document.querySelector("#nav-favoritos");
+let filmesFavoritos = 
 
 btnBuscarFilme.onclick = async ()=>{
     if(inputBuscarFilme.value.length > 0)
@@ -26,6 +28,8 @@ btnBuscarFilme.onclick = async ()=>{
                 filmes.push(filme);
 
             });
+
+
             listarFilmes(filmes);
         });
 
@@ -61,6 +65,26 @@ let detalhesFilme = async (id)=>{
         
         detalheFilmes.appendChild(filme.getCardDetalhes());
         console.log(detalheFilmes);
+
+        document.querySelector("#btnFechar").onclick=()=>{
+            document.querySelector("#lista-filmes").style.display="flex";
+            document.querySelector("#mostrar-filme").innerHTML="";
+            document.querySelector("#mostrar-filme").style.display="none";
+        }
+        document.querySelector("#btnSalvar").onclick=()=>{
+
+            let filmeString = localStorage.getItem('filmesFav');
+            let filmes = [];
+          
+            if (filmeString) {
+              filmes = JSON.parse(filmeString);
+            }
+            
+            filmes.push(filme);
+
+            localStorage.setItem('filmesFav', JSON.stringify(filmes));
+        }
+
     });
 
     return false;
@@ -85,6 +109,14 @@ let listarFilmes = async(filmes)=>{
     return false;
 };
 
+let listarFavortios =async(filmes)=>{
+    let filmesFav = localStorage.getItem('filmesFav');
+    filmesFav = JSON.parse(filmesFav)
+}
+
+navFavoritos.onclick = ()=>{
+    listarFavortios();
+}
 
 
 
