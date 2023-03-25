@@ -26,7 +26,7 @@ class Filme{
     let hCardTitle=document.createElement("h5");
     hCardTitle.setAttribute("class","card-title");
     let divDetalhes = document.createElement("div");
-    divDetalhes.setAttribute("style","display:flex; justify-content:space-aroud;");
+    divDetalhes.setAttribute("class","info","style","display:flex; justify-content:space-aroud;");
     let divGenero=document.createElement("div");
     divGenero.setAttribute("style","flex-grow:1;");
     let divAnoProducao=document.createElement("div");

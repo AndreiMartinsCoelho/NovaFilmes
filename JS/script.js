@@ -16,13 +16,13 @@ btnBuscarFilme.onclick = async ()=>{
                     item.imdbID,
                     item.Title,
                     item.Year,
-                    null,
+                    item.Genre,
                     null,
                     null,
                     item.Poster,
                     null,
                     null,
-                    null,
+                    item.Awards,
                     null
                 );
                 filmes.push(filme);
@@ -109,14 +109,35 @@ let listarFilmes = async(filmes)=>{
     return false;
 };
 
-let listarFavortios =async(filmes)=>{
-    let filmesFav = localStorage.getItem('filmesFav');
-    filmesFav = JSON.parse(filmesFav)
-}
+function listarFavoritos() {
+    
+      const filmesFav = JSON.parse(localStorage.getItem('filmesFav'));
+      const filmesFavoritos = [];
+  
+      filmesFav.forEach((item) => {
+        const filme = new Filme(
+        item.id,
+        item.titulo,
+        item.ano,  
+        item.genero,
+        null,
+        null,
+        item.cartaz,
+        null,
+        null,
+        item.classi,
+        null
+    );
+        filmesFavoritos.push(filme);
+    });
+  
+    listarFilmes(filmesFavoritos);
+  }
+  
 
-navFavoritos.onclick = ()=>{
-    listarFavortios();
-}
+navFavoritos.onclick = () => {
+  listarFavoritos();
+};
 
 
 
