@@ -69,7 +69,7 @@ let detalhesFilme = async (id)=>{
         document.querySelector("#btnFechar").onclick=()=>{
             document.querySelector("#lista-filmes").style.display="flex";
             document.querySelector("#mostrar-filme").innerHTML="";
-            document.querySelector("#mostrar-filme").style.display="none";
+            document.querySelector("#mostrar-filme").innerHTML="";
         }
         document.querySelector("#btnSalvar").onclick=()=>{
 
