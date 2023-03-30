@@ -264,29 +264,34 @@ footer{
 }
 
 #btnSalvar{
-    font-size: 12pt;
+    font-size: 8pt;
     align-items: center;
     justify-content: center;
     width: 40%;
     display: flex;
     padding: 10px;
     margin: 10px;
-    height: 3vh;
+    height: 6vh;
     border: none;
-    border: solid 3px red;
+    color: white;
+    background-color: red;
+    border: solid 3px white;
     border-radius: 10px;
 }
 
 #btnFechar{
+    font-size: 8pt;
+    color: white;
+    background-color: red;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 40%;
     display: flex;
     padding: 10px;
     margin: 10px;
-    height: 3vh;
+    height: 6vh;
     border: none;
-    border: solid 3px red;
+    border: solid 3px white;
     border-radius: 10px;
 }
 
