@@ -80,7 +80,7 @@ let detalhesFilme = async (id)=>{
               filmes = JSON.parse(filmeString);
             }
             
-            if (filmes.some(f => f.id === filme.id)) {
+            if (filmes.some(filmeTest => filmeTest.id === filme.id)) {
                 alert("O FILME JÁ ESTÁ NA LISTA DE FAVORITOS!");
                 return;
             }
