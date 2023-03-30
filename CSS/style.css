@@ -188,7 +188,6 @@ footer{
 }
 
 .fav{
-    font-size: 8pt;
     background-color: #1E1E1E;
     height: 10%;
     width: 100%;
@@ -265,8 +264,6 @@ footer{
 }
 
 #btnSalvar{
-    color: white;
-    background-color: red;
     font-size: 12pt;
     align-items: center;
     justify-content: center;
@@ -274,24 +271,22 @@ footer{
     display: flex;
     padding: 10px;
     margin: 10px;
-    height: 7vh;
+    height: 3vh;
     border: none;
-    border: solid 3px white;
+    border: solid 3px red;
     border-radius: 10px;
 }
 
 #btnFechar{
-    background-color: red;
-    color: white;
     align-items: center;
     justify-content: center;
     width: 25%;
     display: flex;
     padding: 10px;
     margin: 10px;
-    height: 7vh;
+    height: 3vh;
     border: none;
-    border: solid 3px white;
+    border: solid 3px red;
     border-radius: 10px;
 }
 
