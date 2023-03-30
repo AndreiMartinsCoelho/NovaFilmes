@@ -80,9 +80,14 @@ let detalhesFilme = async (id)=>{
               filmes = JSON.parse(filmeString);
             }
             
+            if (filmes.some(f => f.id === filme.id)) {
+                alert("O FILME JÁ ESTÁ NA LISTA DE FAVORITOS!");
+                return;
+            }
+            
             filmes.push(filme);
-
             localStorage.setItem('filmesFav', JSON.stringify(filmes));
+            alert("FILME ADICIONADO COM SUCESSO NA LISTA DE FAVORITOS!")
         }
 
     });
