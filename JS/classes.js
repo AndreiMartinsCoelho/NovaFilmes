@@ -27,21 +27,13 @@ class Filme{
     hCardTitle.setAttribute("class","card-title");
     let divDetalhes = document.createElement("div");
     divDetalhes.setAttribute("class","info","style","display:flex; justify-content:space-aroud;");
-    let divGenero=document.createElement("div");
-    divGenero.setAttribute("style","flex-grow:1;");
     let divAnoProducao=document.createElement("div");
     divAnoProducao.setAttribute("style","flex-grow:1;");
-    let divClassificacao=document.createElement("div");
-    divClassificacao.setAttribute("style","flex-grow:1;");
 
     hCardTitle.appendChild(document.createTextNode("Nome: "+this.titulo));
-    divGenero.appendChild(document.createTextNode(this.genero));
-    divAnoProducao.appendChild(document.createTextNode(this.ano));
-    divClassificacao.appendChild(document.createTextNode(this.classi));
+    divAnoProducao.appendChild(document.createTextNode("Ano: "+this.ano));
 
-    divDetalhes.appendChild(divGenero);
     divDetalhes.appendChild(divAnoProducao);
-    divDetalhes.appendChild(divClassificacao);
     card.appendChild(imgCartaz);
     card.appendChild(cardBody);
     cardBody.appendChild(hCardTitle);
@@ -95,8 +87,8 @@ getCardDetalhes = () => {
     btnSalvar.setAttribute("id","btnSalvar");
     let btnFecho = document.createElement('button');
     btnFecho.setAttribute("id","btnFechar");
-
-
+    let btnDesfav = document.createElement("button");
+    btnDesfav.setAttribute("id","btnDesfav");
 
     tituloFilme.appendChild(document.createTextNode("Nome: "+this.titulo));
     filmGenero.appendChild(document.createTextNode("Gênero: "+this.genero));
@@ -109,6 +101,7 @@ getCardDetalhes = () => {
     filmAtor.appendChild(document.createTextNode("Atores: "+this.atores));
     btnSalvar.appendChild(document.createTextNode("Salvar Filme"));
     btnFecho.appendChild(document.createTextNode("Fechar"));
+    btnDesfav.appendChild(document.createTextNode("Desfavoritar"));
 
     cardDetalhe.appendChild(cardImg);
     cardDetalhe.appendChild(divSimDetalhes)
@@ -124,10 +117,12 @@ getCardDetalhes = () => {
     divDetalhes.appendChild(filmDura);
     divDetalhes.appendChild(btnSalvar);
     divDetalhes.appendChild(btnFecho);
+    divDetalhes.appendChild(btnDesfav);
   
     return cardDetalhe;
   };
   
+
 
 getBtnDetalhes = () =>{
     return this.btnDetalhes;

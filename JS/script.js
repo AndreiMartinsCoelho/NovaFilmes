@@ -1,7 +1,6 @@
 let inputBuscarFilme = document.querySelector("#input-buscar-filme");
 let btnBuscarFilme = document.querySelector("#btn-buscar-filme");
 let navFavoritos = document.querySelector("#nav-favoritos");
-let filmesFavoritos = 
 
 btnBuscarFilme.onclick = async ()=>{
     if(inputBuscarFilme.value.length > 0)
@@ -16,13 +15,13 @@ btnBuscarFilme.onclick = async ()=>{
                     item.imdbID,
                     item.Title,
                     item.Year,
-                    item.Genre,
+                    null,
                     null,
                     null,
                     item.Poster,
                     null,
                     null,
-                    item.Awards,
+                    null,
                     null
                 );
                 filmes.push(filme);
@@ -90,6 +89,30 @@ let detalhesFilme = async (id)=>{
             alert("FILME ADICIONADO COM SUCESSO NA LISTA DE FAVORITOS!")
         }
 
+        document.querySelector("#btnDesfav").onclick=()=>{
+            let filmes = [];
+            let filmeString = localStorage.getItem('filmesFav');
+
+            if (!filme) {
+                alert("SELECIONE UM FILME PARA REMOVER DA LISTA DE FAVORITOS!.");
+            } else if (!filmeString) {
+                alert("O FILME NÃO ESTÁ NA LISTA PARA SER REMOVIDO!");
+            } else {
+                filmes = JSON.parse(filmeString);
+
+            const remover = filmes.findIndex(filmeDes => filmeDes.id === filme.id);
+
+            if (remover === -1) {
+                alert("O FILME NÃO ESTÁ NA LISTA DE FAVORITOS!");
+            } else {
+            filmes.splice(remover, 1);
+            localStorage.setItem('filmesFav', JSON.stringify(filmes));
+            alert("O FILME FOI RETIRADO DOS FAVORITOS!");
+                }
+            }     
+        };
+    
+
     });
 
     return false;
@@ -139,6 +162,7 @@ function listarFavoritos() {
     listarFilmes(filmesFavoritos);
   }
   
+
 
 navFavoritos.onclick = () => {
   listarFavoritos();

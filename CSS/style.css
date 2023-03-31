@@ -196,11 +196,17 @@ footer{
     justify-content: center;
 }
 
+.card:hover{
+    display: flex;
+    height: 60%;
+}
+
 .card{
-    width: 18vw;
+    cursor: pointer;
+    width: 20vw;
     height: 55vh;
     background-color: #1E1E1E;
-    margin: 5px;
+    margin: 15px;
     border-radius: 15px;
     color: white;
     display: flex;
@@ -267,7 +273,7 @@ footer{
     font-size: 8pt;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    width: 28%;
     display: flex;
     padding: 10px;
     margin: 10px;
@@ -285,7 +291,23 @@ footer{
     background-color: red;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    width: 28%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    height: 6vh;
+    border: none;
+    border: solid 3px white;
+    border-radius: 10px;
+}
+
+#btnDesfav{
+    font-size: 8pt;
+    color: white;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    width: 28%;
     display: flex;
     padding: 10px;
     margin: 10px;
@@ -438,6 +460,11 @@ section{
     justify-content: center;
     display: flex;
     font-size: 14pt;
+    margin: 10px;
+}
+
+buttom:hover{
+    background-color: yellow;
 }
 
 .cardFilmeDeth{
