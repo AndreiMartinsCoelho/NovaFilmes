@@ -16,28 +16,36 @@ class Filme{
     }
 
     getCard = async() =>{
-    let card = document.createElement("div");
-    card.setAttribute("class","card");
-    let imgCartaz = document.createElement("img");
-    imgCartaz.setAttribute("class","card-img-topz");
-    imgCartaz.setAttribute("src",this.cartaz);
-    let cardBody = document.createElement("div");
-    cardBody.setAttribute("class","card-body");
-    let hCardTitle=document.createElement("h5");
-    hCardTitle.setAttribute("class","card-title");
-    let divDetalhes = document.createElement("div");
-    divDetalhes.setAttribute("class","info","style","display:flex; justify-content:space-aroud;");
-    let divAnoProducao=document.createElement("div");
-    divAnoProducao.setAttribute("style","flex-grow:1;");
-
-    hCardTitle.appendChild(document.createTextNode("Nome: "+this.titulo));
-    divAnoProducao.appendChild(document.createTextNode("Ano: "+this.ano));
-
-    divDetalhes.appendChild(divAnoProducao);
-    card.appendChild(imgCartaz);
-    card.appendChild(cardBody);
-    cardBody.appendChild(hCardTitle);
-    cardBody.appendChild(divDetalhes);
+        let card = document.createElement("div");
+        card.setAttribute("class","card");
+        let imgCartaz = document.createElement("img");
+        imgCartaz.setAttribute("class","card-img-topz");
+        imgCartaz.setAttribute("src",this.cartaz);
+        let cardBody = document.createElement("div");
+        cardBody.setAttribute("class","card-body");
+        let hCardTitle=document.createElement("h5");
+        hCardTitle.setAttribute("class","card-title");
+        let divDetalhes = document.createElement("div");
+        divDetalhes.setAttribute("class","info","style","display:flex; justify-content:space-aroud;");
+        let divGenero=document.createElement("div");
+        divGenero.setAttribute("style","flex-grow:1;");
+        let divAnoProducao=document.createElement("div");
+        divAnoProducao.setAttribute("style","flex-grow:1;");
+        let divClassificacao=document.createElement("div");
+        divClassificacao.setAttribute("style","flex-grow:1;");  ;
+    
+        hCardTitle.appendChild(document.createTextNode("Nome: "+this.titulo));
+        divGenero.appendChild(document.createTextNode("Gênero: "+this.genero));
+        divAnoProducao.appendChild(document.createTextNode("Ano: "+this.ano));
+        divClassificacao.appendChild(document.createTextNode("Premios: "+this.classi));
+    
+        divDetalhes.appendChild(divGenero);
+        divDetalhes.appendChild(divAnoProducao);
+        divDetalhes.appendChild(divClassificacao);
+        card.appendChild(imgCartaz);
+        card.appendChild(cardBody);
+        cardBody.appendChild(hCardTitle);
+        cardBody.appendChild(divDetalhes);
 
     this.setBtnDetalhes();
     cardBody.appendChild(this.getBtnDetalhes());
@@ -89,6 +97,8 @@ getCardDetalhes = () => {
     btnFecho.setAttribute("id","btnFechar");
     let btnDesfav = document.createElement("button");
     btnDesfav.setAttribute("id","btnDesfav");
+    let btnEditar = document.createElement('button');
+    btnEditar.setAttribute("id","btnEditar");
 
     tituloFilme.appendChild(document.createTextNode("Nome: "+this.titulo));
     filmGenero.appendChild(document.createTextNode("Gênero: "+this.genero));
@@ -102,6 +112,8 @@ getCardDetalhes = () => {
     btnSalvar.appendChild(document.createTextNode("Salvar Filme"));
     btnFecho.appendChild(document.createTextNode("Fechar"));
     btnDesfav.appendChild(document.createTextNode("Desfavoritar"));
+    btnEditar.appendChild(document.createTextNode("Editar"));
+
 
     cardDetalhe.appendChild(cardImg);
     cardDetalhe.appendChild(divSimDetalhes)
@@ -118,12 +130,12 @@ getCardDetalhes = () => {
     divDetalhes.appendChild(btnSalvar);
     divDetalhes.appendChild(btnFecho);
     divDetalhes.appendChild(btnDesfav);
+    divDetalhes.appendChild(btnEditar);
   
     return cardDetalhe;
   };
   
-
-
+  
 getBtnDetalhes = () =>{
     return this.btnDetalhes;
 }

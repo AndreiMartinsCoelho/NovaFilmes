@@ -111,8 +111,49 @@ let detalhesFilme = async (id)=>{
                 }
             }     
         };
-    
 
+        document.querySelector("#btnEditar").onclick=()=>{
+            let filmeString = localStorage.getItem('filmesFav');
+            let filmes = [];
+           
+            if (!filmeString) {
+                alert("Não há filmes favoritos armazenados.");
+                return;
+            }
+            
+            filmes = JSON.parse(filmeString);
+            
+            if (filmes.length === 0) {
+                alert("Não há filmes favoritos armazenados.");
+                return;
+            }
+            
+            let filmeId = prompt("Digite o ID do filme que deseja editar:");
+            
+            let filmeIndex = filmes.findIndex(filme => filme.id === filmeId);
+            
+            if (filmeIndex === -1) {
+                alert("Não foi possível encontrar o filme selecionado.");
+                return;
+            }
+            
+            let filmeEditado = prompt("Digite o novo titulo do filme:");
+            filmes[filmeIndex].titulo = filmeEditado;
+            let filmeEditado2 = prompt("Digite o novo ano do filme:");
+            filmes[filmeIndex].ano = filmeEditado2;
+            let filmeEditado3 = prompt("Digite os novos premios do filme:");
+            filmes[filmeIndex].classi = filmeEditado3;
+            let filmeEditado4 = prompt("Digite os novos gêneros do filme:");
+            filmes[filmeIndex].genero = filmeEditado4;
+
+            localStorage.setItem('filmesFav', JSON.stringify(filmes));
+            
+            alert("Filme editado com sucesso, caso queira desfazer as edições é só remover da lista de favoritos!");
+              
+            console.log(JSON.parse(localStorage.getItem('filmesFav')))
+            listarFilmes(filme);
+        };
+    
     });
 
     return false;

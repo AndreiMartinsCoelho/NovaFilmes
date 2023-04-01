@@ -196,11 +196,6 @@ footer{
     justify-content: center;
 }
 
-.card:hover{
-    display: flex;
-    height: 60%;
-}
-
 .card{
     cursor: pointer;
     width: 20vw;
@@ -301,6 +296,22 @@ footer{
     border-radius: 10px;
 }
 
+#btnEditar{
+    font-size: 8pt;
+    color: white;
+    background-color: red;
+    align-items: center;
+    justify-content: center;
+    width: 28%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    height: 6vh;
+    border: none;
+    border: solid 3px white;
+    border-radius: 10px;
+}
+
 #btnDesfav{
     font-size: 8pt;
     color: white;
@@ -338,6 +349,7 @@ footer{
 
 .card-body2{
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     width: 100%;
@@ -455,16 +467,12 @@ section{
 }
 
 .card{
-    width: 46vw;
-    height: 26vh;
+    width: 40vw;
+    height: 28vh;
     justify-content: center;
     display: flex;
-    font-size: 14pt;
+    font-size: 10pt;
     margin: 10px;
-}
-
-buttom:hover{
-    background-color: yellow;
 }
 
 .cardFilmeDeth{
@@ -502,8 +510,7 @@ buttom:hover{
 
 .cardInfos{
     font-size: 15px;
-    width: 95%;
-    margin: 10px;
+    width: 100%;
 }
 
 .card-body{
