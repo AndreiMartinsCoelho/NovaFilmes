@@ -42,16 +42,18 @@ let detalhesFilme = async (id)=>{
     .then((resp)=>resp.json())
     .then((resp)=>{
         console.log(resp);
+        let genre = resp.Genre ? resp.Genre.split(",") : [];
+        let actors = resp.Actors ? resp.Actors.split(",") : [];
         let filme = new Filme(
             resp.imdbID,
             resp.Title,
             resp.Year,
-            resp.Genre.split(","),
+            genre,
             resp.Runtime,
             resp.Plot,
             resp.Poster,
             resp.Director,
-            resp.Actors.split(","),
+            actors,
             resp.Awards,
             resp.imdbRating
         );
@@ -113,47 +115,46 @@ let detalhesFilme = async (id)=>{
         };
 
         document.querySelector("#btnEditar").onclick=()=>{
-            let filmeString = localStorage.getItem('filmesFav');
+            let filmesString = localStorage.getItem('filmesFav');
             let filmes = [];
-           
-            if (!filmeString) {
+        
+            if (!filmesString) {
                 alert("Não há filmes favoritos armazenados.");
                 return;
             }
-            
-            filmes = JSON.parse(filmeString);
-            
+        
+            filmes = JSON.parse(filmesString);
+        
             if (filmes.length === 0) {
                 alert("Não há filmes favoritos armazenados.");
                 return;
             }
-            
-            let filmeId = prompt("Digite o ID do filme que deseja editar:");
-            
-            let filmeIndex = filmes.findIndex(filme => filme.id === filmeId);
-            
+        
+            let filmeSelecionado = prompt("Digite o título do filme que deseja editar(as edições serão mostradas na aba de filmes favortivos):");
+            let filmeIndex = filmes.findIndex(filme => filme.titulo === filmeSelecionado);
+        
             if (filmeIndex === -1) {
                 alert("Não foi possível encontrar o filme selecionado.");
                 return;
             }
-            
-            let filmeEditado = prompt("Digite o novo titulo do filme:");
-            filmes[filmeIndex].titulo = filmeEditado;
-            let filmeEditado2 = prompt("Digite o novo ano do filme:");
-            filmes[filmeIndex].ano = filmeEditado2;
-            let filmeEditado3 = prompt("Digite os novos premios do filme:");
-            filmes[filmeIndex].classi = filmeEditado3;
-            let filmeEditado4 = prompt("Digite os novos gêneros do filme:");
-            filmes[filmeIndex].genero = filmeEditado4;
-
+        
+            let novoTitulo = prompt("Digite o novo título do filme:");
+            let novoAno = prompt("Digite o novo Ano do filme:");
+            let novoGenero = prompt("Digite o novo gênero do filme:");
+            let novoPremio = prompt("Digite os novos premios do filme:");
+        
+            filmes[filmeIndex].titulo = novoTitulo;
+            filmes[filmeIndex].ano = novoAno;
+            filmes[filmeIndex].genero = novoGenero;
+            filmes[filmeIndex].classi = novoPremio;
+        
             localStorage.setItem('filmesFav', JSON.stringify(filmes));
-            
+        
             alert("Filme editado com sucesso, caso queira desfazer as edições é só remover da lista de favoritos!");
-              
+        
             console.log(JSON.parse(localStorage.getItem('filmesFav')))
-            listarFilmes(filme);
+            detalhesFilme(filmes[filmeIndex].id);
         };
-    
     });
 
     return false;
