@@ -115,7 +115,7 @@ let detalhesFilme = async (id)=>{
         };
 
         document.querySelector("#btnEditar").onclick=()=>{
-
+            
         };
     });
 
