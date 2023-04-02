@@ -264,6 +264,26 @@ footer{
     border: solid 3px white;
 }
 
+a:link{
+    text-decoration: none;
+}
+
+a{
+    align-items: center;
+    justify-content: center;
+    width: 28%;
+    display: flex;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 35%;
+    height: 6vh;
+    border: none;
+    color: white;
+    background-color: red;
+    border: solid 3px black;
+    border-radius: 10px;
+}
+
 #btnSalvar{
     font-size: 8pt;
     align-items: center;
