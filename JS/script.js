@@ -115,45 +115,7 @@ let detalhesFilme = async (id)=>{
         };
 
         document.querySelector("#btnEditar").onclick=()=>{
-            let filmesString = localStorage.getItem('filmesFav');
-            let filmes = [];
-        
-            if (!filmesString) {
-                alert("Não há filmes favoritos armazenados.");
-                return;
-            }
-        
-            filmes = JSON.parse(filmesString);
-        
-            if (filmes.length === 0) {
-                alert("Não há filmes favoritos armazenados.");
-                return;
-            }
-        
-            let filmeSelecionado = prompt("Digite o título do filme que deseja editar(as edições serão mostradas na aba de filmes favortivos):");
-            let filmeIndex = filmes.findIndex(filme => filme.titulo === filmeSelecionado);
-        
-            if (filmeIndex === -1) {
-                alert("Não foi possível encontrar o filme selecionado.");
-                return;
-            }
-        
-            let novoTitulo = prompt("Digite o novo título do filme:");
-            let novoAno = prompt("Digite o novo Ano do filme:");
-            let novoGenero = prompt("Digite o novo gênero do filme:");
-            let novoPremio = prompt("Digite os novos premios do filme:");
-        
-            filmes[filmeIndex].titulo = novoTitulo;
-            filmes[filmeIndex].ano = novoAno;
-            filmes[filmeIndex].genero = novoGenero;
-            filmes[filmeIndex].classi = novoPremio;
-        
-            localStorage.setItem('filmesFav', JSON.stringify(filmes));
-        
-            alert("Filme editado com sucesso, caso queira desfazer as edições é só remover da lista de favoritos!");
-        
-            console.log(JSON.parse(localStorage.getItem('filmesFav')))
-            detalhesFilme(filmes[filmeIndex].id);
+
         };
     });
 
